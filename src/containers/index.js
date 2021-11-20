@@ -1,0 +1,11 @@
+export { default as JumbotronContainer } from "./Jumbotron";
+export { default as FeatureContainer } from "./Feature";
+export { default as MissionContainer } from "./Mission";
+export { default as ClientsContainer } from "./Clients";
+export { default as ProjectsContainer } from "./Projects";
+export { default as CTAContainer } from "./CTA";
+export { default as CEOContainer } from "./CEO";
+export { default as StoryContainer } from "./Story";
+export { default as StatisticsContainer } from "./Statistics";
+export { default as TeamsContainer } from "./Teams";
+export { default as ContactContainer } from "./Contact";
