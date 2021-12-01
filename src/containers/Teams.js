@@ -1,16 +1,17 @@
-import React from "react";
-import styled from "styled-components";
-import * as FaIcons from "react-icons/fa";
-import * as FiIcons from "react-icons/fi";
-import * as ImIcons from "react-icons/im";
-import { TeamData as Data } from "../shared/TeamData";
+import React from 'react';
+import styled from 'styled-components';
+import * as FaIcons from 'react-icons/fa';
+import * as FiIcons from 'react-icons/fi';
+import * as ImIcons from 'react-icons/im';
+import { TeamData as Data } from '../shared/TeamData';
+import { AwardData as Award } from '../shared/AwardData';
 
 export default function TeamsContainer() {
   return (
     <TeamSection>
       <Container>
         <Subheader>
-          <img src="/images/stars/star_4.svg" />
+          <img src='/images/stars/star_4.svg' />
           <p>Our Leaders</p>
           <h3>
             Veritatis et quasi architecto beatae vitae dicta sunt explicabo.
@@ -18,7 +19,7 @@ export default function TeamsContainer() {
           </h3>
         </Subheader>
         <TeamWrapper>
-          {Data.map((d) => {
+          {Data.map(d => {
             return (
               <div key={d.id}>
                 <WrapperImage>
@@ -42,10 +43,10 @@ export default function TeamsContainer() {
       </Container>
       <LifeSection>
         <LifeImage>
-          <img src="/images/misc/aeon.png" alt="Aeon Workplace" />
+          <img src='/images/misc/aeon.png' alt='Aeon Workplace' />
         </LifeImage>
         <Desc>
-          <img src="/images/stars/star_3.svg" alt="" />
+          <img src='/images/stars/star_3.svg' alt='' />
           <h3>Life at Aeon</h3>
           <p>
             Aeon Life Here to Win, Here to Have Fun. At Creative Edge, we want
@@ -61,6 +62,21 @@ export default function TeamsContainer() {
           </p>
         </Desc>
       </LifeSection>
+      <Awards>
+        <Subheader>
+          <img src='/images/stars/star_9.svg' />
+          <p>Our Leaders</p>
+          <h3>
+            Veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+            Nemo enim ipsam voluptatem quia
+          </h3>
+        </Subheader>
+        <Contents>
+          {Award.map(award => {
+            return <img src={award.src} alt='' />;
+          })}
+        </Contents>
+      </Awards>
     </TeamSection>
   );
 }
@@ -73,8 +89,7 @@ const TeamSection = styled.section`
   align-items: center;
   flex-direction: column;
   width: 100%;
-
-  color: ${(props) => props.theme.variant.secondary};
+  color: ${props => props.theme.variant.secondary};
 `;
 
 const Container = styled.div`
@@ -94,7 +109,7 @@ const Subheader = styled.div`
   align-items: center;
   & h3 {
     margin: 2.5rem 0;
-    font-size: ${(props) => props.theme.font.size.heading4};
+    font-size: ${props => props.theme.font.size.heading4};
     width: 400px;
     text-align: center;
   }
@@ -133,7 +148,7 @@ const Socials = styled.div`
   height: 100%;
   opacity: 0;
   display: flex;
-  background: ${(props) => props.theme.variant.quaternary};
+  background: ${props => props.theme.variant.quaternary};
   align-items: center;
   justify-content: center;
   transition: opacity 0.02s ease-in-out;
@@ -146,10 +161,9 @@ const TeamWrapper = styled.div`
   padding-top: 10rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 10rem;
-  display: flex;
   justify-content: center;
-  align-items: center; ;
+  align-items: center;
+  gap: 10rem;
 `;
 const Name = styled.p`
   padding: 1rem 0;
@@ -161,7 +175,7 @@ const SocialMedia = styled.div`
   width: 80%;
   padding: 0 45px;
   font-size: 200px;
-  color: ${(props) => props.theme.variant.primary};
+  color: ${props => props.theme.variant.primary};
   height: 9.5rem;
   padding-bottom: 4.5px;
   display: flex;
@@ -194,7 +208,7 @@ const LifeImage = styled.div`
 `;
 
 const Desc = styled.div`
-  background: ${(props) => props.theme.variant.quaternary};
+  background: ${props => props.theme.variant.quaternary};
   padding: 0 12rem;
   display: flex;
   align-items: flex-start;
@@ -202,8 +216,8 @@ const Desc = styled.div`
   flex-direction: column;
 
   & h3 {
-    color: ${(props) => props.theme.variant.primary};
-    font-size: ${(props) => props.theme.font.size.heading3};
+    color: ${props => props.theme.variant.primary};
+    font-size: ${props => props.theme.font.size.heading3};
   }
   & p:first-of-type {
     padding: 2.5rem 0;
@@ -211,5 +225,29 @@ const Desc = styled.div`
   }
   & img {
     height: 3rem;
+  }
+`;
+
+const Awards = styled.div`
+  background: ${props => props.theme.variant.quinary};
+  width: 100%;
+  color: white;
+  padding: 10rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Contents = styled.div`
+  padding-top: 7.5rem;
+  display: flex;
+  gap: 15rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 50vw;
+  & img {
+    width: 17.5rem;
   }
 `;

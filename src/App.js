@@ -6,8 +6,7 @@ import {
   AboutPage,
   ContactPage,
   TeamPage,
-  ProjectsPage,
-} from "../src/pages";
+  FaqsPage} from "../src/pages";
 import { Cursor, Footer } from "../src/components";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -25,13 +24,13 @@ function App() {
             <Route path="about" element={<AboutPage />} />
           </Routes>
           <Routes>
-            <Route path="contact" element={<ContactPage />} />
-          </Routes>
-          <Routes>
             <Route path="team" element={<TeamPage />} />
           </Routes>
           <Routes>
-            <Route path="projects" element={<ProjectsPage />} />
+            <Route path="faqs" element={<FaqsPage />} />
+          </Routes>
+          <Routes>
+            <Route path="contact" element={<ContactPage />} />
           </Routes>
           <Footer />
         </Router>

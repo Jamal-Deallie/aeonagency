@@ -61,8 +61,4 @@ h1, h2, h3 {
 }
 
 
-/* section {
-  padding: 100px 0;
-
-} */
  `;

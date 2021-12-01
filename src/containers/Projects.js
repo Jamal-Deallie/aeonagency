@@ -1,37 +1,65 @@
-import React from "react";
-import styled from "styled-components";
-import { ProjectData as Data } from "../shared/ProjectData";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { Button } from '../components';
+import { ProjectData as Data } from '../shared/ProjectData';
+import { useToggle } from '../hooks/useToggle';
+import { ProjectDetails } from '../components';
+import cn from 'classnames';
 
 export default function ProjectContainer() {
+  const [project, setProject] = useState({});
+  const [showProject, setShowProject] = useToggle();
+
   return (
-    <ProjectSection>
+    <ProjectSection className={cn({ 'overlay': showProject })}>
       <Container>
         <Subheader>
-          <img src="/images/stars/star_1.svg" />
+          <img src='/images/stars/star_11.svg' />
           <p>OUR PROJECTS</p>
           <h3>Discover the most fascinating projects for our clients</h3>
+          <p>
+            Veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+            Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
+            fugit
+          </p>
         </Subheader>
         <Contents>
-          {Data.map((d) => {
+          {Data.slice(0, 3).map((d, i) => {
             return (
-              <div key={d.id}>
-                <img src={d.src} alt={d.alt} />
-              </div>
+              <>
+                <ImgWrapper
+                  key={d.id}
+                  onClick={() => {
+                    setShowProject(!showProject);
+                    setProject(d);
+                  }}>
+                  <img src={d.src} alt={d.alt} />
+                  <h3>{d.brand}</h3>
+                  <p>{d.desc}</p>
+                </ImgWrapper>
+              </>
             );
           })}
         </Contents>
+        <StyledButton>Discover More</StyledButton>
       </Container>
+      <ProjectDetails showProject={showProject} setShowProject={setShowProject} project={project} />
     </ProjectSection>
   );
 }
 
 const ProjectSection = styled.section`
   width: 100%;
-  padding-bottom: 200px;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  &.overlay{
+
+  }
 `;
 
 const Container = styled.div`
@@ -47,67 +75,41 @@ const Subheader = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: ${(props) => props.theme.variant.tertiary};
+  color: ${props => props.theme.variant.tertiary};
   & h3 {
-    margin: 2.5rem 0 7.5rem 0;
-    font-size: ${(props) => props.theme.font.size.heading4};
+    margin: 2.5rem 0;
+    font-size: ${props => props.theme.font.size.heading4};
     width: 500px;
     text-align: center;
   }
   & img {
     height: 5rem;
   }
+  & p:last-child {
+    padding-bottom: 7.5rem;
+    width: 600px;
+    text-align: center;
+  }
 `;
 
 const Contents = styled.div`
   height: 100%;
   display: grid;
-  grid-gap: 0.2rem;
-  grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 1.5rem;
+  grid-template-columns: 3fr 4fr 3fr;
   justify-items: stretch;
   align-content: center;
-  & div {
-    background: rgba(0, 0, 0, 0.7);
-    cursor: pointer;
-    transition: background .04s ease-in-out;
-    &:hover {
-      background: none;
-    }
-  }
   & :nth-of-type(1) {
-    grid-column: 1 / span 2;
-    grid-row: span 1;
     position: relative;
   }
-  & :nth-of-type(2) {
-    grid-column: 3 / span 4;
-    grid-row: span 1;
-  }
-  & :nth-of-type(3) {
-    grid-column: 7 / span 2;
-    grid-row: span 1;
-  }
-  & :nth-of-type(4) {
-    grid-column: 9 / span 2;
-    grid-row: span 1;
-  }
-  & :nth-of-type(5) {
-    grid-column: 1 / span 4;
-    grid-row: span 1;
-  }
-  & :nth-of-type(6) {
-    grid-column: 5 / span 2;
-    grid-row: span 1;
-  }
-  & :nth-of-type(7) {
-    grid-column: 7 / span 2;
-    grid-row: span 1;
-  }
-  & :nth-of-type(8) {
-    grid-column: 9 / span 2;
-    grid-row: span 1;
-  }
+`;
+
+const ImgWrapper = styled.div`
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  color: ${props => props.theme.variant.tertiary};
   & img {
     position: absolute;
     left: 0;
@@ -116,33 +118,17 @@ const Contents = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
-    mix-blend-mode: multiply;
   }
 `;
 
-const InnerContents = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 375px;
-  padding: 0 2rem;
-  & img {
-    height: 75px;
+const StyledButton = styled(Button)`
+  background-color: transparent;
+  margin-top: 7.5rem;
+  border: solid 0.2rem #ed738a;
+  color: ${props => props.theme.variant.tertiary};
+  transition: all 0.5s ease-in-out;
+  &:hover {
+    background-color: #ed738a;
+    color: ${props => props.theme.variant.primary};
   }
-  & p {
-    text-align: center;
-  }
-  & h3 {
-    margin: 2.5rem 0;
-    color: white;
-  }
-`;
-
-const MissionSection = styled.section`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 `;

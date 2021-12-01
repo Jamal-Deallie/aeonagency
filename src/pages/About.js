@@ -5,6 +5,7 @@ import {
   FeatureContainer,
   StoryContainer,
   StatisticsContainer,
+  ServicesContainer
 } from "../containers";
 
 export default function AboutPage() {
@@ -12,9 +13,10 @@ export default function AboutPage() {
     <div data-scroll>
       <Jumbotron title={"About Us"} subheader={"We Are Aeon"} />
       <StoryContainer />
-      <FeatureContainer />
+      <FeatureContainer/>
       <CEOContainer />
       <StatisticsContainer />
+      <ServicesContainer/>
     </div>
   );
 }

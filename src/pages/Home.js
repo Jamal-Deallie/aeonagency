@@ -1,7 +1,7 @@
 import React from "react";
 import { Navigation, Footer } from "../components";
 import {
-  JumbotronContainer,
+  HeroContainer,
   FeatureContainer,
   MissionContainer,
   ClientsContainer,
@@ -12,8 +12,8 @@ import {
 export default function HomePage() {
   return (
     <div data-scroll>
-      <JumbotronContainer />
-      <FeatureContainer />
+      <HeroContainer />
+      <FeatureContainer tertiary={true}/>
       <MissionContainer />
       <ClientsContainer />
       <ProjectsContainer />

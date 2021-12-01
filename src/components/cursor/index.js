@@ -10,7 +10,7 @@ export default function Cursor() {
       {/* 2. */}
       <Ring style={{ left: `${x}px`, top: `${y}px` }}/>
       {/* 3. */}
-      {/* <Dot style={{ left: `${x}px`, top: `${y}px` }}/> */}
+      <Dot style={{ left: `${x}px`, top: `${y}px` }}/>
     </>
   );
 }
@@ -39,7 +39,7 @@ position: fixed;
   left: 50%;
   width: 8px;
   height: 8px;
-  background-color: black;
+  background-color: #fec820;
   border-radius: 100%;
   transform: translate(-50%, -50%);
   z-index: 999;

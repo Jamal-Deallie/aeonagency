@@ -40,7 +40,6 @@ const ClientsSection = styled.section`
   align-items: center;
   flex-direction: column;
   width: 100%;
-  padding-bottom: 5rem;
 `;
 const Container = styled.div`
   max-width: 1420px;

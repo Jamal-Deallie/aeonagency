@@ -1,12 +1,12 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 export default function CTAContainer() {
   return (
     <CTASection>
       <Container>
         <Subheader>
-          <img src="/images/stars/star_5.svg" />
+          <img src='/images/stars/star_5.svg' />
           <p> REQUEST A CALL BACK</p>
           <h3>We are always ahead of you Professional Solutions</h3>
           <p>
@@ -17,25 +17,25 @@ export default function CTAContainer() {
         </Subheader>
         <Form>
           <div>
-            <Input type="text" id="Name" name="Name" placeholder="Name" />
+            <Input type='text' id='Name' name='Name' placeholder='Name' />
           </div>
           <div>
-            <Input type="text" id="Email" name="Email" placeholder="Email" />
+            <Input type='text' id='Email' name='Email' placeholder='Email' />
           </div>
           <div>
             <Input
-              type="text"
-              id="Contact Number"
-              name="Contact Number"
-              placeholder="Contact Number"
+              type='text'
+              id='Contact Number'
+              name='Contact Number'
+              placeholder='Contact Number'
             />
           </div>
           <Textarea
-            id="message"
-            name="message"
-            rows="4"
-            cols="50"
-            placeholder="Message"
+            id='message'
+            name='message'
+            rows='4'
+            cols='50'
+            placeholder='Message'
           />
           <SubmitButton>Submit</SubmitButton>
         </Form>
@@ -46,13 +46,14 @@ export default function CTAContainer() {
 
 const CTASection = styled.section`
   padding-top: 5rem;
-  background: ${(props) => props.theme.variant.quaternary};
+  background: ${props => props.theme.variant.quaternary};
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
   padding-bottom: 5rem;
+  margin: 0 auto;
 `;
 
 const Container = styled.div`
@@ -72,7 +73,7 @@ const Subheader = styled.div`
   align-items: center;
   & h3 {
     margin: 2.5rem 0;
-    font-size: ${(props) => props.theme.font.size.heading4};
+    font-size: ${props => props.theme.font.size.heading4};
     width: 400px;
     text-align: center;
     color: white;
@@ -121,7 +122,7 @@ const Textarea = styled.textarea`
   transition: border-color 0.2s;
   &::placeholder {
     color: #bb97c9;
-    font-family: "Roboto", sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
   &:focus {
     border-bottom-color: #ed738a;
@@ -134,11 +135,11 @@ const SubmitButton = styled.button`
   border-radius: 3px;
   display: inline-block;
   cursor: pointer;
-  color: ${(props) => props.theme.variant.primary};
+  color: ${props => props.theme.variant.primary};
   font-weight: 600;
-  font-size: ${(props) => props.theme.font.medium};
-  background: ${(props) => props.theme.variant.tertiary};
-  border: solid 2px ${(props) => props.theme.variant.primary};
+  font-size: ${props => props.theme.font.medium};
+  background: ${props => props.theme.variant.tertiary};
+  border: solid 2px ${props => props.theme.variant.primary};
   padding: 9px 23px;
   text-decoration: none;
   transition: background 0.02s ease-in-out;
@@ -146,3 +147,4 @@ const SubmitButton = styled.button`
     background: #be5c6e;
   }
 `;
+

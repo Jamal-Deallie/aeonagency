@@ -7,4 +7,6 @@ export { default as Footer } from "./footer";
 export { default as Cursor } from "./cursor";
 export { default as Jumbotron } from "./jumbotron";
 export { default as ContactForm } from "./form";
+export { default as ProjectDetails} from "./project";
+export {default as Accordion } from "./accordion";
 

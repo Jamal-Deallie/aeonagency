@@ -1,19 +1,18 @@
-import React from "react";
-import styled from "styled-components";
-import { FeatureData as Data } from "../../shared/FeatureData";
-
+import React from 'react';
+import styled from 'styled-components';
+import { FeatureData as Data } from '../../shared/FeatureData';
 
 export default function Feature() {
   return (
-    <Section>
+    <FeatureSection>
       <Container>
         <Subheader>
-          <img src="/images/stars/star_1.svg"/>
+          <img src='/images/stars/star_1.svg' />
           <p> Features</p>
           <h3>Doing the right thing at the right time </h3>
         </Subheader>
         <Contents>
-          {Data.map((d) => {
+          {Data.map(d => {
             return (
               <InnerContents key={d.id}>
                 <img src={d.icon} />
@@ -24,13 +23,13 @@ export default function Feature() {
           })}
         </Contents>
       </Container>
-    </Section>
+    </FeatureSection>
   );
 }
 
-const Section = styled.section`
+const FeatureSection = styled.section`
   width: 100%;
-  background: ${(props) => props.theme.variant.tertiary};
+  background: ${props => (props.tertiary ? '#ED738A' : '#5762cd')};
 `;
 
 const Container = styled.div`
@@ -46,11 +45,12 @@ const Subheader = styled.div`
   align-items: center;
   & h3 {
     margin: 2.5rem 0 7.5rem 0;
-    font-size:${(props) => props.theme.font.size.heading4};
+    font-size: ${props => props.theme.font.size.heading4};
     width: 300px;
     text-align: center;
     color: white;
-  } & img {
+  }
+  & img {
     height: 5rem;
   }
 `;
@@ -72,9 +72,11 @@ const InnerContents = styled.div`
   padding: 0 2rem;
   & img {
     height: 75px;
-  } & p {
+  }
+  & p {
     text-align: center;
-  } & h3 {
+  }
+  & h3 {
     margin: 2.5rem 0;
     color: white;
   }

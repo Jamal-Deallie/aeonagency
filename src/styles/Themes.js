@@ -4,6 +4,7 @@ export const theme = {
     secondary: "#000000",
     tertiary: "#ED738A",
     quaternary: "#8D51A5",
+    quinary: "#5762cd",
   },
   font: {
     size: {
@@ -24,7 +25,7 @@ export const theme = {
   },
   breakpoint: {
     mobile: "375px",
-    tablet: "600px",
+    tablet: "768px",
     laptop: "1200px",
     desktop: "1600px",
   },

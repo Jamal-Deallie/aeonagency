@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import { QuoteData as quotes } from "../../shared/QuoteData";
-import * as FaIcons from "react-icons/fa";
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import { QuoteData as quotes } from '../../shared/QuoteData';
+import * as FaIcons from 'react-icons/fa';
 
 export default function Slider() {
   const [active, setActive] = useState(0);
 
-  const handleSetClick = (e) => {
-    setActive(e.target.getAttribute("data-quote"));
+  const handleSetClick = e => {
+    setActive(e.target.getAttribute('data-quote'));
   };
 
   useEffect(() => {
@@ -24,17 +24,18 @@ export default function Slider() {
 
   return (
     <QuoteContainer>
-      <FaIcons.FaQuoteLeft className="icon" />
+      <FaIcons.FaQuoteLeft className='icon' />
       <Quote>
         <p>{quote} </p>
         <img src={src} alt={title} />
         <p>{title}</p>
         <Buttons>
-          {Object.keys(quotes).map((index) => (
+          {Object.keys(quotes).map(index => (
             <DotBtn
-              onClick={(e) => handleSetClick(e)}
+              onClick={e => handleSetClick(e)}
               data-quote={index}
               key={index}
+              current={active === index ? true : false}
             />
           ))}
         </Buttons>
@@ -51,7 +52,7 @@ const QuoteContainer = styled.div`
   width: 1440px;
   & .icon {
     font-size: 2.5em;
-    color: ${(props) => props.theme.variant.tertiary};
+    color: ${props => props.theme.variant.tertiary};
   }
 `;
 
@@ -67,8 +68,8 @@ const Quote = styled.div`
     margin: 50px 0;
   }
   & p:first-child {
-    font-size: ${(props) => props.theme.font.size.heading5};
-    font-weight: 600;
+    font-size: ${props => props.theme.font.size.heading5};
+    font-weight: 300;
     font-style: italic;
     text-align: center;
     width: 35vw;
@@ -76,7 +77,7 @@ const Quote = styled.div`
 `;
 
 const Buttons = styled.div`
-  color: ${(props) => props.theme.variant.secondary};
+  color: ${props => props.theme.variant.secondary};
   display: flex;
   padding-top: 2.5rem;
 `;
@@ -89,11 +90,10 @@ const DotBtn = styled.span`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-
   &:before {
-    content: "";
+    content: '';
     border-radius: 50%;
-    background: #ffffff;
+    background: ${props => (props.current ? '#ED738A' : '#ffffff')};
     width: 0.6rem;
     height: 0.6rem;
     transition: background-color 0.3s ease-in-out;

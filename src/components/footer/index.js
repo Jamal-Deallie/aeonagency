@@ -1,17 +1,17 @@
-import React from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { NavData as Data } from "../../shared/NavData";
-import * as FaIcons from "react-icons/fa";
-import * as FiIcons from "react-icons/fi";
-import * as ImIcons from "react-icons/im";
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { NavData as Data } from '../../shared/NavData';
+import * as FaIcons from 'react-icons/fa';
+import * as FiIcons from 'react-icons/fi';
+import * as ImIcons from 'react-icons/im';
 
 export default function Footer() {
   return (
     <FooterSection>
       <Container>
         <Address>
-          <Logo src="/images/logos/aeon_logo.svg" />
+          <Logo src='/images/logos/aeon_logo.svg' />
           <h3> Aeon Agency </h3>
           <li> Wilson Square Building</li>
           <li> 2808 Wildrose Lane</li>
@@ -31,7 +31,7 @@ export default function Footer() {
         </About>
         <LinkContainer>
           <h3>Quick Links</h3>
-          {Data.map((d) => {
+          {Data.map(d => {
             return (
               <li>
                 <Links key={d.id} to={d.path}>
@@ -43,7 +43,7 @@ export default function Footer() {
         </LinkContainer>
         <Form>
           <h3>Sign up for our newsletter</h3>
-          <Input type="text" id="Email" name="Email" placeholder="Email" />
+          <Input type='text' id='Email' name='Email' placeholder='Email' />
           <SubmitButton>Submit</SubmitButton>
         </Form>
       </Container>
@@ -52,8 +52,12 @@ export default function Footer() {
         <FiIcons.FiYoutube />
         <FiIcons.FiTwitter />
       </SocialMedia>
+      <Terms>
+        <li> @2021 Aeon Agency</li>
+        <li> Privacy Policy</li>
+      </Terms>
     </FooterSection>
-  )
+  );
 }
 
 const FooterSection = styled.footer`
@@ -64,6 +68,7 @@ const FooterSection = styled.footer`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding-bottom: 5rem;
 `;
 const Address = styled.div`
   & h3 {
@@ -73,15 +78,14 @@ const Address = styled.div`
 `;
 
 const Form = styled.form`
-display: flex;
-flex-direction: column;
-width: 30rem;
+  display: flex;
+  flex-direction: column;
+  width: 30rem;
 
   & h3 {
     color: white;
     padding-bottom: 2.5rem;
   }
-
 `;
 const Container = styled.div`
   display: flex;
@@ -122,13 +126,13 @@ const Border = styled.hr`
 `;
 const Links = styled(Link)`
   margin-right: 50px;
-  font-size: ${(props) => props.theme.font.size.medium};
+  font-size: ${props => props.theme.font.size.medium};
   text-transform: uppercase;
   color: white;
   font-weight: 500;
   cursor: pointer;
   &:hover {
-    color: ${(props) => props.theme.variant.tertiary};
+    color: ${props => props.theme.variant.tertiary};
   }
   @media (max-width: 1024px) {
   }
@@ -138,7 +142,7 @@ const SocialMedia = styled.div`
   width: 80%;
   border-top: 1px solid #ffffff;
   padding: 0 45px;
-  font-size: ${(props) => props.theme.font.size.heading4};
+  font-size: ${props => props.theme.font.size.heading4};
   height: 9.5rem;
   padding-bottom: 4.5px;
   display: flex;
@@ -146,17 +150,22 @@ const SocialMedia = styled.div`
   justify-content: center;
   gap: 50px;
 `;
+const Terms = styled.div`
+  display: flex;
+  gap: 2.5rem;
+  font-size: ${props => props.theme.font.size.small};
+`;
 
 const SubmitButton = styled.button`
   margin: 25px 0;
   border-radius: 3px;
   display: inline-block;
   cursor: pointer;
-  color: ${(props) => props.theme.variant.primary};
+  color: ${props => props.theme.variant.primary};
   font-weight: 600;
-  font-size: ${(props) => props.theme.font.medium};
-  background: ${(props) => props.theme.variant.tertiary};
-  border: solid 2px ${(props) => props.theme.variant.primary};
+  font-size: ${props => props.theme.font.medium};
+  background: ${props => props.theme.variant.tertiary};
+  border: solid 2px ${props => props.theme.variant.primary};
   padding: 9px 23px;
   text-decoration: none;
   transition: background 0.02s ease-in-out;
